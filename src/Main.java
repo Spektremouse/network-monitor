@@ -11,16 +11,18 @@ public class Main
         ArrayList<String> directoryList = new ArrayList<>();
 
         Filter fil = new Filter();
-        File[] list = fil.folderFinder("C:\\Users\\Thomas Pachico\\Documents\\UEA\\Networks Monitor\\output-19-04-2017");
+        File[] list = fil.folderFinder("C:\\Users\\Thomas Pachico\\Documents\\UEA\\Networks Monitor\\output");
 
         for(int i=0; i< list.length; i++)
         {
             directoryList.add(list[i].toString());
         }
 
-        //PingParser pparse = new PingParser(directoryList);
-        //pparse.readFiles();
+        PingParser pparse = new PingParser(directoryList);
+        pparse.readFiles();
         WgetParser wparse = new WgetParser(directoryList);
         wparse.readFiles();
+        TracerouteParser tparse = new TracerouteParser(directoryList);
+        tparse.readFiles();
     }
 }
