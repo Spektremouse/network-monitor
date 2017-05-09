@@ -18,7 +18,9 @@ public class Main
             directoryList.add(list[i].toString());
         }
 
-        PingParser pparse = new PingParser(directoryList);
-        pparse.readFiles();
+        //PingParser pparse = new PingParser(directoryList);
+        //pparse.readFiles();
+        WgetParser wparse = new WgetParser(directoryList);
+        wparse.readFiles();
     }
 }

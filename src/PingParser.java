@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Created by Thomas Pachico on 21/04/2017.
  */
-public class PingParser
+public class PingParser extends Parser
 {
     private static final String PING_LOC = "\\ping";
     private static final String FILE_HEADER = "Hostname,Received,Transmitted,Loss Rate,Total Time,RTTMin,RTTMax,"+
@@ -126,28 +126,5 @@ public class PingParser
                 ex.printStackTrace();
             }
         }
-    }
-
-    private String[] extractDate(String file)
-    {
-        String date;
-        String time;
-        String dateTime;
-
-        String[] temp = file.split("\\\\");
-
-        dateTime = temp[temp.length - 1];
-
-        temp = dateTime.split("\\.");
-
-        dateTime = temp[0];
-
-        temp = dateTime.split("@");
-
-        date = temp[0];
-        time = temp[temp.length-1];
-
-        String [] result = {date, time};
-        return result;
     }
 }
